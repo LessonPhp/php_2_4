@@ -22,8 +22,6 @@ abstract class Controller
         } else {
             return false;
         }
-
-        //return true;
     }
 
     public function action($action)

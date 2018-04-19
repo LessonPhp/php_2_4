@@ -10,7 +10,7 @@ abstract class Model
     public $id;
 
     /**
-     * @return array
+     * @return array|bool
      */
     public static function findAll()
     {
@@ -23,7 +23,7 @@ abstract class Model
 
     /**
      * @param $id
-     * @return bool
+     * @return null
      */
     public static function findById($id)
     {
@@ -42,7 +42,6 @@ abstract class Model
     public function insert()
     {
         $fields = get_object_vars($this);
-        //var_dump($fields);
         $cols = [];
         $data = [];
 
@@ -54,8 +53,6 @@ abstract class Model
             $cols[] = $name;
             $data[':' . $name] = $value;
         }
-        //var_dump($cols);
-        //var_dump($data);
 
         $sql = '
         INSERT INTO ' . static::TABLE . '
@@ -87,7 +84,6 @@ abstract class Model
         UPDATE ' . static::TABLE . '
         SET ' . implode(', ', $cols) . '
         WHERE id=:id';
-        //die;
 
         $db = new Db();
         $db->execute($sql, $data);

@@ -13,28 +13,34 @@ class Article extends Model
     public $content;
     public $author_id;
 
+
     /**
-     * @param $author
+     * @param $name
      * @return bool|null
      */
-
-    public function __get($name) {
-        if(isset($this->author_id)) {
-            return Author::findByAuthorId($this->author_id);
+    public function __get($name)
+    {
+        if('author' === $name) {
+            if(isset($this->author_id)) {
+                return Author::findById($this->author_id);
+            } else {
+                return null;
+            }
         }
-        return null;
     }
 
     /**
      * @param $name
      * @return bool|null
      */
-
-    public function __isset($name) {
-        if(!empty($this->author_id)) {
-            return Author::findByAuthorId($this->author_id);
+    public function __isset($name)
+    {
+        if('author' === true) {
+            if(!empty($this->author_id)) {
+                return Author::findById($this->$this->author_id);
+            }
+            return false;
         }
-        return null;
     }
     /**
      * @return array

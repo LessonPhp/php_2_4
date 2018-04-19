@@ -7,5 +7,4 @@ require __DIR__ . '/../autoload.php';
 $ctrl = new AdminIndex();
 $ctrl();
 
-//$ctrl->actionAdminIndex();
 
