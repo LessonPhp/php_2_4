@@ -5,7 +5,7 @@ namespace App;
 
 class View implements \Countable
 {
-    use TraitView;
+    use TraitV;
 
     /**
      * @param $template
@@ -22,11 +22,11 @@ class View implements \Countable
 
     /**
      * @param $template
-     * @return mixed
+     * @return string
      */
     public function display($template)
     {
-        return $this->render($template);
+        echo $this->render($template);
     }
 
     public function count()

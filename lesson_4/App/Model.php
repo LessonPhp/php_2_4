@@ -10,7 +10,7 @@ abstract class Model
     public $id;
 
     /**
-     * @return array|bool
+     * @return array
      */
     public static function findAll()
     {
@@ -23,7 +23,7 @@ abstract class Model
 
     /**
      * @param $id
-     * @return null
+     * @return bool
      */
     public static function findById($id)
     {
@@ -34,7 +34,6 @@ abstract class Model
             static::class
         );
 
-        // исправила ошибку с прошлого урока
         return $result ? $result[0] : null;
     }
 
@@ -84,6 +83,7 @@ abstract class Model
         UPDATE ' . static::TABLE . '
         SET ' . implode(', ', $cols) . '
         WHERE id=:id';
+
 
         $db = new Db();
         $db->execute($sql, $data);
