@@ -31,6 +31,7 @@ class Admin extends Controller
 
     }
 
+    // теперь показ формы в другом экшене
     public function actionViewAdd()
     {
         $this->view->display(__DIR__ . '/../../admin/templates/add.php');
@@ -61,6 +62,7 @@ class Admin extends Controller
 
     }
 
+    // теперь показ формы в другом экшене
     public function actionViewUpdate()
     {
         if(isset($_GET['id'])) {
