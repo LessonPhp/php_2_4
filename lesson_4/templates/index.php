@@ -10,7 +10,6 @@
 <body>
 <a href="/lesson_4/home_work/?ctrl=Admin&action=Admin"><h3 style="text-align: center;">Админ-панель</h3></a>
 <?php
-
 foreach ($this->articles as $article) : ?>
     <h1 style="text-align: center;"><?php echo $article->title; ?></h1>
     <p style="text-align: justify; text-indent: 15px;"><?php echo $article->content; ?></p>

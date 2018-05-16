@@ -18,7 +18,6 @@ class Article extends Model
      * @return bool|null
      */
 
-    // переделала
     public function __get($name)
     {
         if('author' === $name) {
@@ -32,7 +31,6 @@ class Article extends Model
      * @return bool
      */
 
-    // переделала
     public function __isset($name)
     {
         if ('author' === $name) {

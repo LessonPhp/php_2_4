@@ -24,14 +24,18 @@ class Admin extends Controller
             $article->title = $title;
             $article->content = $content;
             $article->author_id = $author_id;
-            // исправила
             $article->save();
             header('Location: /lesson_4/home_work/?ctrl=Admin&action=Admin');
             die;
         }
-        $view = new View();
-        $view->display(__DIR__ . '/../../admin/templates/add.php');
+
     }
+
+    public function actionViewAdd()
+    {
+        $this->view->display(__DIR__ . '/../../admin/templates/add.php');
+    }
+
 
     public function actionUpdate()
     {
@@ -50,16 +54,26 @@ class Admin extends Controller
             $article->title = $title;
             $article->content = $content;
             $article->author_id = $author_id;
-            // исправила
             $article->save();
             header('Location: /lesson_4/home_work/?ctrl=Admin&action=Admin');
             die;
         }
 
-        $view = new View();
-        $view->article = \App\Models\Article::findById($id);
-        $view->display(__DIR__ . '/../../admin/templates/update.php');
     }
+
+    public function actionViewUpdate()
+    {
+        if(isset($_GET['id'])) {
+            $id = (int)$_GET['id'];
+        } else {
+            header('Location: /lesson_4/home_work/?ctrl=Admin&action=Admin');
+            die;
+        }
+
+        $this->view->article = \App\Models\Article::findById($id);
+        $this->view->display(__DIR__ . '/../../admin/templates/update.php');
+    }
+
 
     public function actionDelete()
     {

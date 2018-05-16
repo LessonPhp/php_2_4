@@ -12,7 +12,6 @@ class Index extends Controller
     {
 
         $this->view->articles = \App\Models\Article::findAll();
-        // убрала echo
         $this->view->display(__DIR__ . '/../../templates/index.php');
     }
 
@@ -26,7 +25,6 @@ class Index extends Controller
         }
 
         $this->view->article = \App\Models\Article::findById($id);
-        // убрала echo
         $this->view->display( __DIR__ . '/../../templates/article.php');
     }
 }
